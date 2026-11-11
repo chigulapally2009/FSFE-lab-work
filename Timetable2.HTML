@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 900px;
+        }
+        th, td {
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #2d2d2d;
+            font-size: 13px;
+        }
+        th {
+            background-color: #252525;
+            color: #a0a0a0;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        .day-header {
+            background-color: #252525;
+            font-weight: bold;
+            color: #ffffff;
+            width: 80px;
+        }
+        .empty-slot {
+            background-color: #181818;
+            color: #444;
+        }
+        /* Class Type Colors */
+        .card {
+            padding: 8px 4px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .period-no {
+            font-size: 9px;
+            color: #b0b0b0;
+            text-align: left;
+            margin-bottom: 2px;
+        }
+        /* Brown/Orange (Skill) */
+        .skill {
+            background-color: #4a351f;
+            border: 1px solid #7a5629;
+            color: #ffd8a8;
+        }
+        /* Green (Prac) */
+        .prac {
+            background-color: #1b382b;
+            border: 1px solid #285d45;
+            color: #b2f2bb;
+        }
+        /* Blue (Lec/Tut) */
+        .lec {
+            background-color: #1c3144;
+            border: 1px solid #2c4f6e;
+            color: #a5d8ff;
+        }
+        .code {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .type-tag {
+            font-size: 9px;
+            padding: 1px 3px;
+            border-radius: 3px;
+            align-self: center;
+            margin-top: 2px;
+            width: fit-content;
+        }
+        .skill .type-tag { background-color: #8c5a23; color: #fff; }
+        .prac .type-tag { background-color: #2b7a54; color: #fff; }
+        .lec .type-tag { background-color: #205482; color: #fff; }
+        
+        .room {
+            font-size: 9px;
+            color: #cccccc;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Class Timetable</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>DAY</th>
+                    <th>PERIOD 1</th>
+                    <th>PERIOD 2</th>
+                    <th>PERIOD 3</th>
+                    <th>PERIOD 4</th>
+                    <th>PERIOD 5</th>
+                    <th>PERIOD 6</th>
+                    <th>PERIOD 7</th>
+                    <th>PERIOD 8</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- MON -->
+                <tr>
+                    <td class="day-header">MON</td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">1 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H201A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">2 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H201A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td class="empty-slot">3</td>
+                    <td class="empty-slot">4</td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">5 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)B - S-13 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">6 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)B - S-13 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">7 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-206 - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">8 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-206 - S-12 B</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- TUE -->
+                <tr>
+                    <td class="day-header">TUE</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">1 CSE</span>
+                            <span class="code">26UC1204E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-208 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">2 CSE</span>
+                            <span class="code">26UC1204E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-208 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">3 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-208 - S-12 B</span>
+                        </div>
+                    </td>
+                    <td class="empty-slot">4</td>
+                    <td>
+                        <div class="card prac">
+                            <span class="period-no">5 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">PRAC</span>
+                            <span class="room">HC-14A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card prac">
+                            <span class="period-no">6 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">PRAC</span>
+                            <span class="room">HC-14A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">7 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)B - S-13 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">8 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)B - S-13 B</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- WED -->
+                <tr>
+                    <td class="day-header">WED</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">1 MA</span>
+                            <span class="code">26MT1202E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-407 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">2 MA</span>
+                            <span class="code">26MT1202E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-407 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td class="empty-slot">3</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">4 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-407 - S-12 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">5 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H-305 - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">6 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H-305 - S-12 B</span>
+                        </div>
+                    </td>
+                    <td class="empty-slot">7</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">8 CSE</span>
+                            <span class="code">26UC1204E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-407 - S-14 MA</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- THU -->
+                <tr>
+                    <td class="day-header">THU</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">1 MA</span>
+                            <span class="code">26MT1202E</span>
+                            <span class="type-tag">TUT</span>
+                            <span class="room">H-206 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">2 MA</span>
+                            <span class="code">26MT1202E</span>
+                            <span class="type-tag">TUT</span>
+                            <span class="room">H-206 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card prac">
+                            <span class="period-no">3 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">PRAC</span>
+                            <span class="room">HC-14A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card prac">
+                            <span class="period-no">4 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">PRAC</span>
+                            <span class="room">HC-14A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">5 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)B - S-13 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">6 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)B - S-13 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">7 GLBCP</span>
+                            <span class="code">26UC0014E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)A - S-13 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">8 GLBCP</span>
+                            <span class="code">26UC0014E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H108(2)A - S-13 MA</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- FRI -->
+                <tr>
+                    <td class="day-header">FRI</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">1 MA</span>
+                            <span class="code">26MT1202E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-403 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">2 MA</span>
+                            <span class="code">26MT1202E</span>
+                            <span class="type-tag">TUT</span>
+                            <span class="room">H-403 - S-14 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">3 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-405 - S-12 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">4 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-405 - S-12 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">5 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-406 - S-13 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">6 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-406 - S-13 MA</span>
+                        </div>
+                    </td>
+                    <td class="empty-slot">7</td>
+                    <td class="empty-slot">8</td>
+                </tr>
+
+                <!-- SAT -->
+                <tr>
+                    <td class="day-header">SAT</td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">1 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H205A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">2 FIS</span>
+                            <span class="code">26EC1101E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H205A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">3 GLBCP</span>
+                            <span class="code">26UC0014E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H-206 - S-13 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card skill">
+                            <span class="period-no">4 GLBCP</span>
+                            <span class="code">26UC0014E</span>
+                            <span class="type-tag">SKILL</span>
+                            <span class="room">H-206 - S-13 MA</span>
+                        </div>
+                    </td>
+                    <td class="empty-slot">5</td>
+                    <td>
+                        <div class="card lec">
+                            <span class="period-no">6 DSA-1</span>
+                            <span class="code">26SC1203E</span>
+                            <span class="type-tag">LEC</span>
+                            <span class="room">H-208 - S-13 MA</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card prac">
+                            <span class="period-no">7 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">PRAC</span>
+                            <span class="room">HC-14A - S-12 B</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card prac">
+                            <span class="period-no">8 FSD-FEF</span>
+                            <span class="code">26SC1204E</span>
+                            <span class="type-tag">PRAC</span>
+                            <span class="room">HC-14A - S-12 B</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
